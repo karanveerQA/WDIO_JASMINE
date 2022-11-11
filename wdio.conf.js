@@ -24,7 +24,16 @@ exports.config = {
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
+    "./test/specs/**/iFrame.js",
   ],
+  //Define suites
+  suites: {
+    smoke: [
+      "./test/specs/**/iFrame.js",
+      "./test/specs/**/YoutubeAutomation.js",
+    ],
+    component: ["./test/specs/**/iFrame.js"],
+  },
   //
   // ============
   // Capabilities

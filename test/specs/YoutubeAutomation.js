@@ -1,7 +1,7 @@
 import BasePage from "./../pages/BasePage";
 
 describe("youtube", () => {
-  xit("should search the user input and check for channelName", async () => {
+  it("should search the user input and check for channelName", async () => {
     await BasePage.openUrl("https://www.youtube.com/");
     const searchInputElement = await BasePage.searchInputField;
     const valueToSearch = "xqc";
@@ -15,7 +15,7 @@ describe("youtube", () => {
     //check for channelName
     const channelNameElement = await BasePage.channelName;
     const channelName = await channelNameElement.getText();
-    expect(channelName).toEqual("xQc");
+    await expect(channelName).toEqual("xQc");
   });
 
   it("should open two tabs and search user input in both tabs and channelName in both tabs ", async () => {
@@ -48,7 +48,7 @@ describe("youtube", () => {
     //check for channelName
 
     channelName = await channelNameElement.getText();
-    expect(channelName).toEqual("IShowSpeed");
+    await expect(channelName).toEqual("IShowSpeed");
 
     const handles = await browser.getWindowHandles();
     //await browser.switchToWindow(handles[1]);
