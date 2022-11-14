@@ -22,6 +22,35 @@ class InstagramPage {
   get profileImage() {
     return $(`img[alt="thakurr1234r444's profile picture"]`);
   }
+
+  get searchInput() {
+    return $('input[aria-label="Search input"]');
+  }
+
+  get usernameDiv() {
+    return $('//div[text()="karanveersingh_thakur"]');
+  }
+
+  get followBtn() {
+    return $('//div[text()="Follow"]');
+  }
+
+  get usernameh2() {
+    return $('//h2[text()="karanveersingh_thakur"]');
+  }
+
+  get ProfileBtn() {
+    return $('svg[aria-label="Following"]');
+  }
+
+  get unfollowBtn() {
+    return $('button[tabindex="0"]');
+  }
+
+  get followBtnText() {
+    return this.followBtn.$("div>div").getText();
+  }
+
   async loginToInstagram() {
     await this.openInstagram();
     await this.emailInput.setValue("thakurr1234r444");
