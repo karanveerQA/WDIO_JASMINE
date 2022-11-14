@@ -1,5 +1,5 @@
 import InstagramPage from "./../pages/Instagram-Page";
-
+import ChatPage from "./../pages/Chat-Page";
 describe("Instagram", () => {
   it("should login the user with the given credentials", async () => {
     await InstagramPage.loginToInstagram();
@@ -24,5 +24,14 @@ describe("Instagram", () => {
     await InstagramPage.ProfileBtn.click();
     await InstagramPage.unfollowBtn.click();
     await expect(InstagramPage.followBtn).toBeDisplayed();
+  });
+
+  it("should send message to the user", async () => {
+    for (let i = 0; i < 5; i++) {
+      await (await InstagramPage.chatBtn).click();
+      await (await ChatPage.personToChat).click();
+      await (await ChatPage.chatInput).setValue("Hi");
+      await (await ChatPage.sendBtn).click();
+    }
   });
 });

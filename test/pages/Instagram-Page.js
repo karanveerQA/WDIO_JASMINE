@@ -51,12 +51,16 @@ class InstagramPage {
     return this.followBtn.$("div>div").getText();
   }
 
+  get chatBtn() {
+    return $('a[aria-label^="Direct messaging"]');
+  }
+
   async loginToInstagram() {
     await this.openInstagram();
     await this.emailInput.setValue("thakurr1234r444");
     await this.passwordInput.setValue("Shinchan@125");
     await this.loginBtn.click();
-    await this.NotNowBtn.click();
+    await (await this.NotNowBtn).click();
     await (await this.NotNowBtn).click();
     await expect(this.profileImage).toBeDisplayed();
   }
