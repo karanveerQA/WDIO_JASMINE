@@ -12,6 +12,7 @@ describe("Instagram", () => {
     await expect(browser).toHaveUrl(
       "https://www.instagram.com/karanveersingh_thakur/"
     );
+    await browser.maximizeWindow();
     await InstagramPage.followBtn.click();
     await expect(InstagramPage.usernameh2).toBeDisplayed();
 
